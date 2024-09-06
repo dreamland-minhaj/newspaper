@@ -55,15 +55,15 @@ const Bank = () => {
         }else if(withdrawalbalance > 20000 ){
             Swal.fire({
                 position: "top-center",
-                icon: "success",
-                title: "Limit Exceded,Per Transation amount 20000 maximum",
+                icon: "error",
+                title: "Maximum Amount 20000 BDT",
                 showConfirmButton: false,
                 timer: 2000
               });
         }else if(withdrawalbalance > CurrentBalance){
             Swal.fire({
                 position: "top-center",
-                icon: "success",
+                icon: "error",
                 title: "Not Enough Balance",
                 showConfirmButton: false,
                 timer: 2000
@@ -85,15 +85,15 @@ const Bank = () => {
     return (
         <>
             <ToastContainer />
-            <div className='h-screen flex flex-wrap items-center justify-center'>
-                <div className="w-96 bg-slate-50 border-2 shadow-md rounded-md m-5 p-5 text-center space-y-2" >
-                    <h2 className="text-2xl">BD Bank</h2>
-                    <p>Current Balance : {CurrentBalance}Tk</p>
+            <div className='h-screen flex flex-wrap  justify-center'>
+                <div className="w-96 rounded-md m-5 p-5 text-center space-y-4" >
+                    <h2 className="text-3xl font-bold font-sans">Bd Bank</h2>
+                    <p className='text-xl'>Current Balance : <span className='text-blue-800 font-bold'>{CurrentBalance} BDT</span> </p>
                     <input type="text" value={addBalance} className="border-2 p-2 rounded-md w-full" onChange={handleInputFundAdd}/>
-                    <button className="bg-blue-700 text-white px-5 py-2 rounded-md w-full" onClick={handleFundAdd}>Add Fund</button>
+                    <button className="bg-blue-700 text-white px-5 py-2 rounded-md w-full" onClick={handleFundAdd}>Cash In</button>
 
                     <input type="text" value={withdrowAmount}className="border-2 p-2 rounded-md w-full" onChange={handlewithdrwalInput}/>
-                    <button className="bg-orange-500 text-white px-5 py-2 rounded-md w-full" onClick={handlewithdrowbtn}>Withdraw Fund</button>
+                    <button className="bg-orange-500 text-white px-5 py-2 rounded-md w-full" onClick={handlewithdrowbtn}>Cash Out</button>
                     
 
                 </div>
