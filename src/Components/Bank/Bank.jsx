@@ -60,6 +60,14 @@ const Bank = () => {
                 showConfirmButton: false,
                 timer: 2000
               });
+        }else if(withdrawalbalance < CurrentBalance){
+            Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "Not Enough Balance",
+                showConfirmButton: false,
+                timer: 2000
+              });
         }else{
             setCurrentBalance((prevState)=> prevState - withdrawalbalance);
             Swal.fire({
