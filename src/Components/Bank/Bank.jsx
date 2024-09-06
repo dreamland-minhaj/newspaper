@@ -60,7 +60,7 @@ const Bank = () => {
                 showConfirmButton: false,
                 timer: 2000
               });
-        }else if(withdrawalbalance < CurrentBalance){
+        }else if(withdrawalbalance > CurrentBalance){
             Swal.fire({
                 position: "top-center",
                 icon: "success",
