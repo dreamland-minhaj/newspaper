@@ -1,11 +1,10 @@
-
-import SweetAlert from './Alert/SweetAlert/SweetAlert';
 import './App.css'
+import Bank from './Components/Bank/Bank';
 
 function App() {
   return (
     <>
-    <SweetAlert/>
+    <Bank/>
     </>
   )
 }
