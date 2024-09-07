@@ -22,7 +22,13 @@ const Bank = () => {
             });
         }else{
             setCurrentBalance((prevState)=>prevState+inputAmount);
-            toast('Fund Succesfuly Deposited');
+            Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "Cash In succesfully",
+                showConfirmButton: false,
+                timer: 2000
+              });
         }
         
         setAddBalance("");  
@@ -37,29 +43,20 @@ const Bank = () => {
 
         if(withdrawalbalance < 0){
             setCurrentBalance((prevState)=> prevState);
-            Swal.fire({
-                position: "top-center",
-                icon: "success",
-                title: "Invalid Amount",
-                showConfirmButton: false,
-                timer: 2000
-              });
+            toast.info('Invalid Amount',{
+                position: 'bottom-left',
+                theme: "dark"
+            });
         }else if(withdrawalbalance < 500){
-            Swal.fire({
-                position: "top-center",
-                icon: "success",
-                title: "Minimum Withdrow Amount 500 TK",
-                showConfirmButton: false,
-                timer: 2000
-              });
+            toast.info('Minimum Withdraw amount 500 BDT',{
+                position: 'bottom-left',
+                theme: "dark"
+            });
         }else if(withdrawalbalance > 20000 ){
-            Swal.fire({
-                position: "top-center",
-                icon: "error",
-                title: "Maximum Amount 20000 BDT",
-                showConfirmButton: false,
-                timer: 2000
-              });
+            toast.info('Maximum withdraw 20000 BDT',{
+                position: 'bottom-left',
+                theme: "dark"
+            });
         }else if(withdrawalbalance > CurrentBalance){
             Swal.fire({
                 position: "top-center",
